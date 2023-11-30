@@ -30,4 +30,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4.5.0
       with:
         branch: gh-pages
-        folder: QuizWebApp/release/wwwroot
+        folder: ./release/wwwroot
+        target-folder: release/wwwroot
