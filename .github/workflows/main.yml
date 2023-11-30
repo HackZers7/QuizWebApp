@@ -20,7 +20,7 @@ jobs:
         include-prerelease: true
 
     - name: Setup `wasm-tools`
-      run: dotnet workload install wasm-tools
+      run: dotnet workload install wasm-tools-net7
       
       # генерируем статические файлы
     - name: Publish .NET Core Project
