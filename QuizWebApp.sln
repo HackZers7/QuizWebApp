@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizWebApp", "QuizWebApp\QuizWebApp\QuizWebApp.csproj", "{0B960714-5538-4F1E-844D-A7B4BDA96884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizWebApp.Desktop", "QuizWebApp\QuizWebApp.Desktop\QuizWebApp.Desktop.csproj", "{5B490639-5155-459A-A0F1-DED4232E43DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizWebApp.Browser", "QuizWebApp\QuizWebApp.Browser\QuizWebApp.Browser.csproj", "{F06F3248-F5B0-4D4B-9963-0AD884638829}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B960714-5538-4F1E-844D-A7B4BDA96884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B960714-5538-4F1E-844D-A7B4BDA96884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B960714-5538-4F1E-844D-A7B4BDA96884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B960714-5538-4F1E-844D-A7B4BDA96884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B490639-5155-459A-A0F1-DED4232E43DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B490639-5155-459A-A0F1-DED4232E43DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B490639-5155-459A-A0F1-DED4232E43DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B490639-5155-459A-A0F1-DED4232E43DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F06F3248-F5B0-4D4B-9963-0AD884638829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06F3248-F5B0-4D4B-9963-0AD884638829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06F3248-F5B0-4D4B-9963-0AD884638829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06F3248-F5B0-4D4B-9963-0AD884638829}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
