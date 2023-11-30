@@ -17,7 +17,6 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '7.0.x'
-        include-prerelease: true
 
     - name: Setup `wasm-tools`
       run: dotnet workload install wasm-tools-net7
@@ -31,4 +30,4 @@ jobs:
       with:
         token: ${{ secrets.TOKEN_KEY }}
         branch: gh-pages
-        folder: release
+        folder: bin/Release/net7.0/browser-wasm/AppBundle
