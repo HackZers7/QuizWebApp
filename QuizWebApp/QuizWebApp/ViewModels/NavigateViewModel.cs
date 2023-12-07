@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using QuizWebApp.Services;
+using QuizWebApp.Views;
 using ReactiveUI;
 
 namespace QuizWebApp.ViewModels;
@@ -24,5 +26,10 @@ public class NavigateViewModel : ViewModelBase
         {
             service.RegisterNavigateView("mainBlock", (model) => Content = model);
         }
+    }
+
+    public override UserControl GetView()
+    {
+        return new NavigateView();
     }
 }

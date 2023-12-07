@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
+using Avalonia.Controls;
 using QuizWebApp.Services;
+using QuizWebApp.Views;
 using ReactiveUI;
 
 namespace QuizWebApp.ViewModels
@@ -27,6 +29,11 @@ namespace QuizWebApp.ViewModels
                     service.Push("mainBlock", new RegistrationViewModel(services));
                 }
             });
+        }
+
+        public override UserControl GetView()
+        {
+            return new MainView();
         }
     }
 }
