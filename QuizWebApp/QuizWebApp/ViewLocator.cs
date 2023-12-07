@@ -7,6 +7,7 @@ namespace QuizWebApp;
 
 public class ViewLocator : IDataTemplate
 {
+    // TODO: Переписать локатор, сделал что бы просто показать)
     public Control? Build(object? data)
     {
         if (data is null)
