@@ -13,6 +13,4 @@ public abstract class ViewModelBase : ReactiveObject
     {
         services = services;
     }
-
-    public abstract UserControl GetView();
 }

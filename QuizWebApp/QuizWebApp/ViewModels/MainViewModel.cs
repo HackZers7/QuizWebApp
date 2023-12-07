@@ -30,11 +30,6 @@ namespace QuizWebApp.ViewModels
                 }
             });
         }
-
-        public override UserControl GetView()
-        {
-            return new MainView();
-        }
     }
 }
 

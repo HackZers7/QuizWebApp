@@ -10,9 +10,4 @@ public class LoginViewModel : ViewModelBase
     public LoginViewModel(IEnumerable<INavigateService> services) : base(services)
     {
     }
-
-    public override UserControl GetView()
-    {
-        return new LoginView();
-    }
 }

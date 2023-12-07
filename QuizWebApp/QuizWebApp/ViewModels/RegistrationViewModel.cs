@@ -10,9 +10,4 @@ public class RegistrationViewModel : ViewModelBase
     public RegistrationViewModel(IEnumerable<INavigateService> services) : base(services)
     {
     }
-
-    public override UserControl GetView()
-    {
-        return new RegistrationView();
-    }
 }

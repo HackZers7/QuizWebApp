@@ -27,9 +27,4 @@ public class NavigateViewModel : ViewModelBase
             service.RegisterNavigateView("mainBlock", (model) => Content = model);
         }
     }
-
-    public override UserControl GetView()
-    {
-        return new NavigateView();
-    }
 }
