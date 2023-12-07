@@ -13,13 +13,17 @@ public class ViewLocator : IDataTemplate
         if (data is null)
             return null;
 
-        var name = data.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
+        var name = data.GetType().FullName!.Replace("ViewModel", "View");
         var type = Type.GetType(name);
-
-        // if (type != null)
-        // {
-        //     return (Control)Activator.CreateInstance(type)!;
-        // }
+        
+        Console.WriteLine(name);
+        Console.WriteLine($"Type is {type}");
+        
+        if (type != null)
+        {
+            Console.WriteLine($"CreateInstance of {type}");
+            return (Control)Activator.CreateInstance(type)!;
+        }
 
         if (data is ViewModelBase model)
         {
