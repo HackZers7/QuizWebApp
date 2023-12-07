@@ -81,6 +81,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "Splat.Avalonia.Microsoft.Extensions.DependencyInjection.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "Splat.dll"
     },
     {
