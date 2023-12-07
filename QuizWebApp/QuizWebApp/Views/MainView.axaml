@@ -5,12 +5,23 @@
              xmlns:vm="clr-namespace:QuizWebApp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="QuizWebApp.Views.MainView"
+             xmlns:v="clr-namespace:QuizWebApp.Views"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
-
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <vm:MainViewModel />
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="Auto *">
+        <Panel Margin="1">
+            <TextBlock Text="QuizApp!"></TextBlock>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Red">
+                <Button Content="Войти" Command="{Binding NavigateToLoginCommand}"></Button>
+                <Button Content="Зарегестирироваться" Command="{Binding NavigateToRegistrationCommand}"></Button>
+            </StackPanel>
+        </Panel>
+        <v:NavigateView Grid.Row="1"></v:NavigateView>
+    </Grid>
 </UserControl>
