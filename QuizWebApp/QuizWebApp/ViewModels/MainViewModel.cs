@@ -1,8 +1,33 @@
-﻿namespace QuizWebApp.ViewModels;
+﻿using System.Collections.Generic;
+using System.Windows.Input;
+using QuizWebApp.Services;
+using ReactiveUI;
 
-public class MainViewModel : ViewModelBase
+namespace QuizWebApp.ViewModels
 {
-#pragma warning disable CA1822 // Mark members as static
-    public string Greeting => "Welcome to Avalonia!";
-#pragma warning restore CA1822 // Mark members as static
+    public class MainViewModel : ViewModelBase
+    {
+        public ICommand NavigateToLoginCommand { get; }
+        public ICommand NavigateToRegistrationCommand { get; }
+
+        public MainViewModel(IEnumerable<INavigateService> services) : base(services)
+        {
+            NavigateToLoginCommand = ReactiveCommand.Create(() =>
+            {
+                foreach (var service in services)
+                {
+                    service.Push("mainBlock", new LoginViewModel(services));
+                }
+            });
+
+            NavigateToRegistrationCommand = ReactiveCommand.Create(() =>
+            {
+                foreach (var service in services)
+                {
+                    service.Push("mainBlock", new RegistrationViewModel(services));
+                }
+            });
+        }
+    }
 }
+
