@@ -57,6 +57,14 @@
     },
     {
       "behavior": "assembly",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Microsoft.Extensions.DependencyInjection.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "QuizWebApp.Browser.dll"
     },
     {
