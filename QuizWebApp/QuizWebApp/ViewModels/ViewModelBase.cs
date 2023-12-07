@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Avalonia.Controls;
 using QuizWebApp.Services;
 using ReactiveUI;
 
 namespace QuizWebApp.ViewModels;
 
-public class ViewModelBase : ReactiveObject
+public abstract class ViewModelBase : ReactiveObject
 {
     protected IEnumerable<INavigateService> services;
     
@@ -12,4 +13,6 @@ public class ViewModelBase : ReactiveObject
     {
         services = services;
     }
+
+    public abstract UserControl GetView();
 }
