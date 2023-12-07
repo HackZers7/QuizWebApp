@@ -1,18 +1,21 @@
-using System.Collections.Generic;
-using System.Linq;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Threading;
-using Microsoft.Extensions.DependencyInjection;
-using QuizWebApp.Services;
-using QuizWebApp.Views;
+using QuizWebApp.Services.NavigateService;
 using ReactiveUI;
+using Splat;
 
 namespace QuizWebApp.ViewModels;
 
-public class NavigateViewModel : ViewModelBase
+public class NavigateViewModel : ViewModelBase, INavigateViewModel
 {
     private ViewModelBase? _content;
+
+    public NavigateViewModel()
+    {
+        var service = Locator.Current.GetService<INavigateFactory>();
+
+        ThrowHelper.ThrowIfNull(service);
+
+        service!.RegisterNavigateViewModel(this);
+    }
 
     public ViewModelBase? Content
     {
@@ -20,16 +23,8 @@ public class NavigateViewModel : ViewModelBase
         private set => this.RaiseAndSetIfChanged(ref _content, value);
     }
 
-    public NavigateViewModel(IEnumerable<INavigateService> services) : base(services)
+    public void Navigate(ViewModelBase? model)
     {
-        foreach (var service in services)
-        {
-            service.RegisterNavigateView("mainBlock", (model) => Content = model);
-        }
-    }
-
-    public override UserControl GetView()
-    {
-        return new NavigateView();
+        Content = model;
     }
 }

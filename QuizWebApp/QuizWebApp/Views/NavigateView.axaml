@@ -7,4 +7,7 @@
              Content="{Binding Content, Mode=OneWay}"
              x:Class="QuizWebApp.Views.NavigateView"
              x:DataType="vm:NavigateViewModel">
+    <UserControl.DataContext>
+        <vm:NavigateViewModel />
+    </UserControl.DataContext>
 </UserControl>

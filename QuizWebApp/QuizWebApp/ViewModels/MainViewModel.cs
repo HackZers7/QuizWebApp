@@ -1,40 +1,33 @@
-﻿using System.Collections.Generic;
-using System.Windows.Input;
-using Avalonia.Controls;
-using QuizWebApp.Services;
-using QuizWebApp.Views;
+﻿using System.Windows.Input;
+using QuizWebApp.Services.NavigateService;
 using ReactiveUI;
+using Splat;
 
-namespace QuizWebApp.ViewModels
+namespace QuizWebApp.ViewModels;
+
+public class MainViewModel : ViewModelBase
 {
-    public class MainViewModel : ViewModelBase
+    private readonly INavigateFactory _navigateService;
+
+    public MainViewModel()
     {
-        public ICommand NavigateToLoginCommand { get; }
-        public ICommand NavigateToRegistrationCommand { get; }
+        var service = Locator.Current.GetService<INavigateFactory>();
 
-        public MainViewModel(IEnumerable<INavigateService> services) : base(services)
+        ThrowHelper.ThrowIfNull(service);
+
+        _navigateService = service!;
+
+        NavigateToLoginCommand = ReactiveCommand.Create(() =>
         {
-            NavigateToLoginCommand = ReactiveCommand.Create(() =>
-            {
-                foreach (var service in services)
-                {
-                    service.Push("mainBlock", new LoginViewModel(services));
-                }
-            });
+            _navigateService.Push<NavigateViewModel>(new LoginViewModel());
+        });
 
-            NavigateToRegistrationCommand = ReactiveCommand.Create(() =>
-            {
-                foreach (var service in services)
-                {
-                    service.Push("mainBlock", new RegistrationViewModel(services));
-                }
-            });
-        }
-
-        public override UserControl GetView()
+        NavigateToRegistrationCommand = ReactiveCommand.Create(() =>
         {
-            return new MainView();
-        }
+            _navigateService.Push<NavigateViewModel>(new RegistrationViewModel());
+        });
     }
-}
 
+    public ICommand NavigateToLoginCommand { get; }
+    public ICommand NavigateToRegistrationCommand { get; }
+}

@@ -2,18 +2,23 @@
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Browser;
-using Avalonia.ReactiveUI;
 using QuizWebApp;
+using ReactiveUI.Avalonia.Splat;
 
 [assembly: SupportedOSPlatform("browser")]
 
-internal sealed partial class Program
+internal sealed class Program
 {
-    private static Task Main(string[] args) => BuildAvaloniaApp()
-        .WithInterFont()
-        .UseReactiveUI()
-        .StartBrowserAppAsync("out");
+    private static Task Main(string[] args)
+    {
+        return BuildAvaloniaApp()
+            .WithInterFont()
+            .UseReactiveUIWithMicrosoftDependencyResolver(Startup.ConfigureServices)
+            .StartBrowserAppAsync("out");
+    }
 
     public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>();
+    {
+        return AppBuilder.Configure<App>();
+    }
 }
