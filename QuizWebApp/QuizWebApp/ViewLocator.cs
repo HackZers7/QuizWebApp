@@ -2,20 +2,22 @@ using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using QuizWebApp.ViewModels;
+using Splat;
 
 namespace QuizWebApp;
 
-public class ViewLocator : IDataTemplate
+public class ViewLocator : IDataTemplate, IEnableLogger
 {
-    // Вроде починил локатор
-    // Как минимум он больше не кидает ошибку, что не нашел страницу 
+    // TODO: Починить локатор... Опять.
     public Control? Build(object? data)
     {
         if (data is null)
             return null;
-
+        
         var name = data.GetType().FullName!.Replace("ViewModel", "View");
         var type = Type.GetType(name);
+        
+        this.Log().Info(type);
         
         if (type != null)
         {

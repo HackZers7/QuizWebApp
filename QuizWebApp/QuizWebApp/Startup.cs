@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
+using Splat;
 
 namespace QuizWebApp;
 
@@ -15,6 +16,7 @@ public static class Startup
     /// <param name="services">Коллекция сервисов.</param>
     public static void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton<INavigateFactory, NavigateFactory>();
+        services.AddSingleton<INavigateFactory, NavigateFactory>()
+            .AddTransient<ILogger, ConsoleLogger>();
     }
 }
