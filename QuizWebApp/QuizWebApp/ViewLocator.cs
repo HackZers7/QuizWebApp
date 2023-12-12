@@ -13,17 +13,15 @@ public class ViewLocator : IDataTemplate, IEnableLogger
     {
         if (data is null)
             return null;
-        
+
         var name = data.GetType().FullName!.Replace("ViewModel", "View");
         var type = Type.GetType(name);
-        
+        Console.WriteLine(type);
+
         this.Log().Info(type);
-        
-        if (type != null)
-        {
-            return (Control)Activator.CreateInstance(type)!;
-        }
-        
+
+        if (type != null) return (Control)Activator.CreateInstance(type)!;
+
         return new TextBlock { Text = "Not Found: " + name };
     }
 
