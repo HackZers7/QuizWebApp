@@ -1,31 +1,38 @@
 ﻿using System.Windows.Input;
 using QuizWebApp.Services.NavigateService;
 using ReactiveUI;
-using Splat;
 
 namespace QuizWebApp.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-    private readonly INavigateFactory _navigateService;
+    private readonly LoginViewModel _loginViewModel;
+    private readonly RegistrationViewModel _registrationViewModel;
+    private ViewModelBase? _content;
 
-    public MainViewModel()
+    public MainViewModel(INavigateFactory navigator, NavigateViewModel navigateViewModel, LoginViewModel login,
+        RegistrationViewModel registration) :
+        base(navigator)
     {
-        var service = Locator.Current.GetService<INavigateFactory>();
-
-        ThrowHelper.ThrowIfNull(service);
-
-        _navigateService = service!;
+        _loginViewModel = login;
+        _registrationViewModel = registration;
+        Content = navigateViewModel;
 
         NavigateToLoginCommand = ReactiveCommand.Create(() =>
         {
-            _navigateService.Push<NavigateViewModel>(new LoginViewModel());
+            _navigateFactory.Push<NavigateViewModel>(_loginViewModel, false);
         });
 
         NavigateToRegistrationCommand = ReactiveCommand.Create(() =>
         {
-            _navigateService.Push<NavigateViewModel>(new RegistrationViewModel());
+            _navigateFactory.Push<NavigateViewModel>(_registrationViewModel, false);
         });
+    }
+
+    public ViewModelBase? Content
+    {
+        get => _content;
+        private set => this.RaiseAndSetIfChanged(ref _content, value);
     }
 
     public ICommand NavigateToLoginCommand { get; }

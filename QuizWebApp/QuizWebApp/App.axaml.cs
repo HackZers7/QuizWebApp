@@ -3,6 +3,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using QuizWebApp.ViewModels;
 using QuizWebApp.Views;
+using Splat;
 
 namespace QuizWebApp;
 
@@ -18,15 +19,19 @@ public class App : Application
         switch (ApplicationLifetime)
         {
             case IClassicDesktopStyleApplicationLifetime desktop:
+                var mainWindowViewModel = Locator.Current.GetService<MainWindowViewModel>();
+                ThrowHelper.ThrowIfNull(mainWindowViewModel);
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new MainWindowViewModel(new MainViewModel())
+                    DataContext = mainWindowViewModel
                 };
                 break;
             case ISingleViewApplicationLifetime singleViewPlatform:
+                var mainViewModel = Locator.Current.GetService<MainViewModel>();
+                ThrowHelper.ThrowIfNull(mainViewModel);
                 singleViewPlatform.MainView = new MainView
                 {
-                    DataContext = new MainViewModel()
+                    DataContext = mainViewModel
                 };
                 break;
         }

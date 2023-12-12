@@ -14,9 +14,9 @@ public class NavigateDescriptor
         _navigateViewModel = navigateViewModel;
     }
 
-    public void Push(ViewModelBase model)
+    public void Push(ViewModelBase model, bool placeInStack)
     {
-        if (_currentViewModel != null) _stack.Push(_currentViewModel);
+        if (_currentViewModel != null && placeInStack) _stack.Push(_currentViewModel);
 
         _currentViewModel = model;
 

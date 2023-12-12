@@ -5,8 +5,8 @@ namespace QuizWebApp.Services.NavigateService;
 
 public interface INavigateFactory
 {
-    void Push<T>(ViewModelBase model) where T : INavigateViewModel;
-    void Push(Type key, ViewModelBase value);
+    void Push<T>(ViewModelBase model, bool placeInStack = true) where T : INavigateViewModel;
+    void Push(Type key, ViewModelBase value, bool placeInStack = true);
     ViewModelBase? Pop<T>() where T : INavigateViewModel;
     ViewModelBase? Pop(Type key);
     void RegisterNavigateViewModel(INavigateViewModel model);

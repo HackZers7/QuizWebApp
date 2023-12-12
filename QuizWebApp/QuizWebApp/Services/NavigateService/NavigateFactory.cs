@@ -7,22 +7,22 @@ namespace QuizWebApp.Services.NavigateService;
 public class NavigateFactory : INavigateFactory
 {
     private readonly Dictionary<Type, NavigateDescriptor> _scope = new();
-    
+
     public void RegisterNavigateViewModel(INavigateViewModel model)
     {
         _scope.TryAdd(model.GetType(), new NavigateDescriptor(model));
     }
-    
-    public void Push<T>(ViewModelBase model) where T : INavigateViewModel
+
+    public void Push<T>(ViewModelBase model, bool placeInStack = true) where T : INavigateViewModel
     {
-        Push(typeof(T), model);
+        Push(typeof(T), model, placeInStack);
     }
 
-    public void Push(Type key, ViewModelBase value)
+    public void Push(Type key, ViewModelBase value, bool placeInStack = true)
     {
         ThrowHelper.ThrowIfNull(key);
 
-        _scope.ThrowIfKeyNotFound(key).Push(value);
+        _scope.ThrowIfKeyNotFound(key).Push(value, placeInStack);
     }
 
     public ViewModelBase? Pop<T>() where T : INavigateViewModel
