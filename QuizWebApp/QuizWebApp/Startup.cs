@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
-using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
+using QuizWebApp.ViewModels;
 using Splat;
 
 namespace QuizWebApp;
@@ -17,6 +17,11 @@ public static class Startup
     public static void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton<INavigateFactory, NavigateFactory>()
-            .AddTransient<ILogger, ConsoleLogger>();
+            .AddTransient<ILogger, ConsoleLogger>()
+            .AddTransient<MainViewModel>()
+            .AddTransient<MainWindowViewModel>()
+            .AddTransient<RegistrationViewModel>()
+            .AddTransient<NavigateViewModel>()
+            .AddTransient<LoginViewModel>();
     }
 }

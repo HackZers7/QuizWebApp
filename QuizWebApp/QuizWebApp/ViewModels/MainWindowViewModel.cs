@@ -1,3 +1,4 @@
+using QuizWebApp.Services.NavigateService;
 using ReactiveUI;
 
 namespace QuizWebApp.ViewModels;
@@ -6,7 +7,7 @@ public class MainWindowViewModel : ViewModelBase
 {
     private ViewModelBase? _content;
 
-    public MainWindowViewModel(ViewModelBase mainView)
+    public MainWindowViewModel(MainViewModel mainView, INavigateFactory navigator) : base(navigator)
     {
         _content = mainView;
     }
