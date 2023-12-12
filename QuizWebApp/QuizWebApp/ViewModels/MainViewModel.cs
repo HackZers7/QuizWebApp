@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using QuizWebApp.Services.NavigateService;
+using QuizWebApp.Views;
 using ReactiveUI;
 
 namespace QuizWebApp.ViewModels;
@@ -11,8 +12,8 @@ public class MainViewModel : ViewModelBase
     private ViewModelBase? _content;
 
     public MainViewModel(INavigateFactory navigator, NavigateViewModel navigateViewModel, LoginViewModel login,
-        RegistrationViewModel registration) :
-        base(navigator)
+        RegistrationViewModel registration, MainView view) :
+        base(navigator, view)
     {
         _loginViewModel = login;
         _registrationViewModel = registration;

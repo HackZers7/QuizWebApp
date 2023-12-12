@@ -1,4 +1,3 @@
-using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using QuizWebApp.ViewModels;
@@ -8,21 +7,23 @@ namespace QuizWebApp;
 
 public class ViewLocator : IDataTemplate, IEnableLogger
 {
-    // TODO: Починить локатор... Опять.
     public Control? Build(object? data)
     {
         if (data is null)
             return null;
 
-        var name = data.GetType().FullName!.Replace("ViewModel", "View");
-        var type = Type.GetType(name);
-        Console.WriteLine(type);
+        this.Log().Info(data);
+        if (data is ViewModelBase viewModel) return viewModel.View;
 
-        this.Log().Info(type);
+        // var name = data.GetType().FullName!.Replace("ViewModel", "View");
+        // var type = Type.GetType(name);
+        // Console.WriteLine(type);
 
-        if (type != null) return (Control)Activator.CreateInstance(type)!;
+        // this.Log().Info(type);
 
-        return new TextBlock { Text = "Not Found: " + name };
+        // if (type != null) return (Control)Activator.CreateInstance(type)!;
+
+        return new TextBlock { Text = data + " is not ViewModelBase. How???" };
     }
 
     public bool Match(object? data)
