@@ -21,18 +21,16 @@ public class App : Application
             case IClassicDesktopStyleApplicationLifetime desktop:
                 var mainWindowViewModel = Locator.Current.GetService<MainWindowViewModel>();
                 ThrowHelper.ThrowIfNull(mainWindowViewModel);
-                desktop.MainWindow = new MainWindow
-                {
-                    DataContext = mainWindowViewModel
-                };
+                mainWindowViewModel!.View.DataContext = mainWindowViewModel;
+
+                desktop.MainWindow = (MainWindow)mainWindowViewModel.View;
                 break;
             case ISingleViewApplicationLifetime singleViewPlatform:
                 var mainViewModel = Locator.Current.GetService<MainViewModel>();
                 ThrowHelper.ThrowIfNull(mainViewModel);
-                singleViewPlatform.MainView = new MainView
-                {
-                    DataContext = mainViewModel
-                };
+
+                mainViewModel!.View.DataContext = mainViewModel;
+                singleViewPlatform.MainView = mainViewModel.View;
                 break;
         }
 

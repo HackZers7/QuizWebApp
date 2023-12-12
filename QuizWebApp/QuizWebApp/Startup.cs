@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using QuizWebApp.Services.NavigateService;
 using QuizWebApp.ViewModels;
+using QuizWebApp.Views;
 using Splat;
 
 namespace QuizWebApp;
@@ -18,10 +19,17 @@ public static class Startup
     {
         services.AddSingleton<INavigateFactory, NavigateFactory>()
             .AddTransient<ILogger, ConsoleLogger>()
+            // Add view models
             .AddTransient<MainViewModel>()
             .AddTransient<MainWindowViewModel>()
             .AddTransient<RegistrationViewModel>()
             .AddTransient<NavigateViewModel>()
-            .AddTransient<LoginViewModel>();
+            .AddTransient<LoginViewModel>()
+            // Add Views
+            .AddTransient<MainView>()
+            .AddTransient<MainWindow>()
+            .AddTransient<RegistrationView>()
+            .AddTransient<NavigateView>()
+            .AddTransient<LoginView>();
     }
 }
