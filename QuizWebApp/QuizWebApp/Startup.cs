@@ -23,9 +23,11 @@ public static class Startup
             .AddTransient<MainViewModel>()
             .AddTransient<MainWindowViewModel>()
             .AddTransient<NavigateViewModel>()
+            .AddTransient<CreateQuizViewModel>()
             // Add Views
             .AddTransient<MainView>()
             .AddTransient<MainWindow>()
-            .AddTransient<NavigateView>();
+            .AddTransient<NavigateView>()
+            .AddTransient<CreateQuizView>();
     }
 }

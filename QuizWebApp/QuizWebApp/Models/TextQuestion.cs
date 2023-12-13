@@ -2,7 +2,15 @@ namespace QuizWebApp.Models;
 
 public class TextQuestion : QuestionBase
 {
-    public string Value { get; set; }
+    public override AnswerBase CreateAnswer()
+    {
+        var newAnswer = new TextAnswer
+        {
+            Id = GetNextAnswersId()
+        };
+        Answers.Add(newAnswer);
+        return newAnswer;
+    }
 
     public override bool CheckAnswer(AnswerBase answer)
     {

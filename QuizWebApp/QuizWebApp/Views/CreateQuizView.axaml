@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="QuizWebApp.Views.CreateQuizView"
+             xmlns:vm="clr-namespace:QuizWebApp.ViewModels"
+             x:DataType="vm:CreateQuizViewModel"
+             xmlns:m="clr-namespace:QuizWebApp.Models">
+    <Design.DataContext>
+        <vm:CreateQuizViewModel />
+    </Design.DataContext>
+    <UserControl.DataTemplates>
+        <DataTemplate x:DataType="{x:Type m:TextAnswer}">
+            <Panel Margin="0 5 0 0" Name="parentPanel">
+                <Panel Background="DarkGray" Opacity="0.5" />
+                <DockPanel>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <TextBlock Text="Ответ:" VerticalAlignment="Center" Margin="5 0 " />
+                        <TextBox Width="200" Text="{Binding Value, Mode=TwoWay}" />
+                        <TextBlock Text="Верный?" VerticalAlignment="Center" Margin="5 0 " />
+                        <CheckBox IsChecked="{Binding IsCorrect, Mode=TwoWay}" />
+                    </StackPanel>
+                    <Button Content="-" HorizontalAlignment="Right"
+                            Command="{Binding ElementName=parentPanel, Path=$parent[ItemsControl].((vm:QuestionViewModel)DataContext).RemoveAnswersCommand}"
+                            CommandParameter="{Binding}" />
+                </DockPanel>
+            </Panel>
+        </DataTemplate>
+        <DataTemplate x:DataType="{x:Type vm:QuestionViewModel}">
+            <Panel Margin="5 0 0 0">
+                <Panel Background="Gray" Opacity="0.2" />
+                <Grid Margin="5" RowDefinitions="Auto *">
+                    <DockPanel>
+                        <TextBlock Text="Вопрос:" VerticalAlignment="Center" Margin="5 0 " />
+                        <TextBox Width="200" Text="{Binding Value.QuestionText, Mode=TwoWay}"
+                                 HorizontalAlignment="Left" />
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button Content="+"
+                                    Command="{Binding AddCommand}" Margin="5 0 5 0" />
+                            <Button
+                                Command="{Binding $parent[UserControl].((vm:CreateQuizViewModel)DataContext).RemoveQuestionCommand}"
+                                CommandParameter="{Binding}"
+                                Content="-" Margin="5 0 5 0" />
+                        </StackPanel>
+                    </DockPanel>
+                    <ItemsControl Margin="20 0 0 0" Grid.Row="1" ItemsSource="{Binding Answers, Mode=OneWay}" />
+                </Grid>
+            </Panel>
+        </DataTemplate>
+    </UserControl.DataTemplates>
+    <Grid RowDefinitions="Auto *">
+        <Button Margin="5" Content="+" HorizontalAlignment="Right"
+                Command="{Binding AddNewQuestionCommand, Mode=OneWay}" />
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <ItemsControl ItemsSource="{Binding Questions, Mode=OneWay}" />
+        </ScrollViewer>
+    </Grid>
+</UserControl>
