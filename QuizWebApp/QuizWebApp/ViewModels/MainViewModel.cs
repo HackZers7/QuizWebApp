@@ -7,35 +7,22 @@ namespace QuizWebApp.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-    private readonly LoginViewModel _loginViewModel;
-    private readonly RegistrationViewModel _registrationViewModel;
     private ViewModelBase? _content;
 
-    public MainViewModel(INavigateFactory navigator, NavigateViewModel navigateViewModel, LoginViewModel login,
-        RegistrationViewModel registration, MainView view) :
+    public MainViewModel(INavigateFactory navigator, NavigateViewModel navigateViewModel,
+        CreateQuizViewModel createQuizViewModel, MainView view) :
         base(navigator, view)
     {
-        _loginViewModel = login;
-        _registrationViewModel = registration;
         Content = navigateViewModel;
 
-        NavigateToLoginCommand = ReactiveCommand.Create(() =>
-        {
-            _navigateFactory.Push<NavigateViewModel>(_loginViewModel, false);
-        });
-
-        NavigateToRegistrationCommand = ReactiveCommand.Create(() =>
-        {
-            _navigateFactory.Push<NavigateViewModel>(_registrationViewModel, false);
-        });
+        OpenEditor = ReactiveCommand.Create(() => { _navigateFactory.Push<NavigateViewModel>(createQuizViewModel); });
     }
+
+    public ICommand OpenEditor { get; }
 
     public ViewModelBase? Content
     {
         get => _content;
         private set => this.RaiseAndSetIfChanged(ref _content, value);
     }
-
-    public ICommand NavigateToLoginCommand { get; }
-    public ICommand NavigateToRegistrationCommand { get; }
 }
