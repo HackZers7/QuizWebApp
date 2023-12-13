@@ -11,8 +11,6 @@
             <TextBlock Text="QuizApp!" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Войти" Command="{Binding NavigateToLoginCommand}" />
-                <Button Content="Зарегестирироваться" Command="{Binding NavigateToRegistrationCommand}" />
                 <Button Content="Создать тест" />
             </StackPanel>
         </Panel>

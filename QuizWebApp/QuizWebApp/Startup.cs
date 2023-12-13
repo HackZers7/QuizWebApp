@@ -22,14 +22,10 @@ public static class Startup
             // Add view models
             .AddTransient<MainViewModel>()
             .AddTransient<MainWindowViewModel>()
-            .AddTransient<RegistrationViewModel>()
             .AddTransient<NavigateViewModel>()
-            .AddTransient<LoginViewModel>()
             // Add Views
             .AddTransient<MainView>()
             .AddTransient<MainWindow>()
-            .AddTransient<RegistrationView>()
-            .AddTransient<NavigateView>()
-            .AddTransient<LoginView>();
+            .AddTransient<NavigateView>();
     }
 }
