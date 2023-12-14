@@ -8,13 +8,12 @@ public abstract class ViewModelBase : ReactiveObject
 {
     protected readonly INavigateFactory _navigateFactory;
 
-    protected ViewModelBase(INavigateFactory navigator, Control view)
+    protected ViewModelBase(INavigateFactory navigator)
     {
         _navigateFactory = navigator;
-        View = view;
     }
 
     // Ладно, если ViewLocator не хочет работать по другому, то будем возвращать View как сервис
     // Надеюсь заработает.
-    public Control View { get; }
+    public abstract Control View { get; }
 }

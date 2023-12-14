@@ -11,7 +11,7 @@ namespace QuizWebApp.ViewModels;
 public class QuestionViewModel : ViewModelBase
 {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-    public QuestionViewModel(QuestionBase value) : base(null, null)
+    public QuestionViewModel(QuestionBase value) : base(null)
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     {
         Value = value;
@@ -26,7 +26,7 @@ public class QuestionViewModel : ViewModelBase
     }
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-    public QuestionViewModel(INavigateFactory navigator, Control view) : base(navigator, view)
+    public QuestionViewModel(INavigateFactory navigator) : base(navigator)
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     {
     }
@@ -38,4 +38,5 @@ public class QuestionViewModel : ViewModelBase
     public ICommand AddCommand { get; }
 
     public ReactiveCommand<AnswerBase, Unit> RemoveAnswersCommand { get; }
+    public override Control View { get; }
 }

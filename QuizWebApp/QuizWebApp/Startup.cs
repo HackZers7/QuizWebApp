@@ -25,13 +25,15 @@ public static class Startup
             .AddTransient<MainViewModel>()
             .AddTransient<MainWindowViewModel>()
             .AddTransient<NavigateViewModel>()
-            .AddFormFactory<CreateQuizViewModel>()
-            .AddFormFactory<QuizSelectViewModel>()
+            // Это НЕ РАБОТАЕТ на github pages
+            // Переделываю на более простой механихм...
+            //.AddFormFactory<CreateQuizViewModel>()
+            //.AddFormFactory<QuizSelectViewModel>()
             // Add Views
             .AddTransient<MainView>()
             .AddTransient<MainWindow>()
-            .AddTransient<NavigateView>()
-            .AddFormFactory<CreateQuizView>()
-            .AddFormFactory<QuizSelectView>();
+            .AddTransient<NavigateView>();
+        //.AddFormFactory<CreateQuizView>()
+        //.AddFormFactory<QuizSelectView>();
     }
 }
