@@ -11,8 +11,7 @@
             <TextBlock Text="QuizApp!" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Создать тест" Command="{Binding OpenEditorCommand, Mode=OneWay}" />
-                <Button Content="Просмотреть тесты" Command="{Binding OpenSelectQuizCommand, Mode=OneWay}" />
+                <Button Content="Создать тест" Command="{Binding OpenEditor, Mode=OneWay}" />
             </StackPanel>
         </Panel>
         <UserControl Grid.Row="1" Content="{Binding Content, Mode=OneWay}" />
