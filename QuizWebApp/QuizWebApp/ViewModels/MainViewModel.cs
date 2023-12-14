@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
 using QuizWebApp.Views;
 using ReactiveUI;
@@ -11,26 +10,15 @@ public class MainViewModel : ViewModelBase
     private ViewModelBase? _content;
 
     public MainViewModel(INavigateFactory navigator, NavigateViewModel navigateViewModel,
-        IAbstractFactory<CreateQuizViewModel> createQuizFactory, IAbstractFactory<QuizSelectViewModel> selectFactory,
-        MainView view) :
+        CreateQuizViewModel createQuizViewModel, MainView view) :
         base(navigator, view)
     {
         Content = navigateViewModel;
 
-        OpenEditorCommand = ReactiveCommand.Create(() =>
-        {
-            _navigateFactory.Push<NavigateViewModel>(createQuizFactory.Create(), false);
-        });
-        OpenSelectQuizCommand = ReactiveCommand.Create(() =>
-        {
-            _navigateFactory.Push<NavigateViewModel>(selectFactory.Create(), false);
-        });
-
-        OpenSelectQuizCommand.Execute(null);
+        OpenEditor = ReactiveCommand.Create(() => { _navigateFactory.Push<NavigateViewModel>(createQuizViewModel); });
     }
 
-    public ICommand OpenEditorCommand { get; }
-    public ICommand OpenSelectQuizCommand { get; }
+    public ICommand OpenEditor { get; }
 
     public ViewModelBase? Content
     {

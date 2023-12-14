@@ -49,20 +49,11 @@
             </Panel>
         </DataTemplate>
     </UserControl.DataTemplates>
-    <Grid RowDefinitions="Auto * Auto">
-        <DockPanel Margin="5">
-            <TextBlock Text="Название теста:" Margin="5 0" VerticalAlignment="Center" />
-            <TextBox Text="{Binding Name, Mode=TwoWay}" Height="20" Width="400" VerticalAlignment="Center" />
-            <Button Margin="5" Content="+" HorizontalAlignment="Right"
-                    Command="{Binding AddNewQuestionCommand, Mode=OneWay}" VerticalAlignment="Center" />
-        </DockPanel>
-
+    <Grid RowDefinitions="Auto *">
+        <Button Margin="5" Content="+" HorizontalAlignment="Right"
+                Command="{Binding AddNewQuestionCommand, Mode=OneWay}" />
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <ItemsControl ItemsSource="{Binding Questions, Mode=OneWay}" />
         </ScrollViewer>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Stretch" Spacing="5">
-            <Button Content="Сохранить" Command="{Binding SaveCommand, Mode=OneWay}" />
-            <Button Content="Отмена" Command="{Binding CancelCommand, Mode=OneWay}" />
-        </StackPanel>
     </Grid>
 </UserControl>
