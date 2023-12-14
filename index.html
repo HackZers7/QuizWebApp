@@ -4,29 +4,29 @@
 <head>
     <title>QuizWebApp</title>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <base href="/QuizWebApp/"/>
-    <link href="./main.js" rel="modulepreload"/>
-    <link href="./dotnet.js" rel="modulepreload"/>
-    <link href="./avalonia.js" rel="modulepreload"/>
-    <link href="./app.css" rel="stylesheet"/>
-    <link href="./favicon.ico" rel="icon" type="image/ico"/>
-    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/QuizWebApp/" />
+    <link rel="modulepreload" href="./main.js" />
+    <link rel="modulepreload" href="./dotnet.js" />
+    <link rel="modulepreload" href="./avalonia.js" />
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" href="./favicon.ico" type="image/ico"/>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
 </head>
 
 <body style="margin: 0px; overflow: hidden">
-<div id="out">
-    <div id="avalonia-splash">
-        <div class="center">
-            <h2 class="purple">
-                Powered by
-                <a class="highlight" href="https://www.avaloniaui.net/" target="_blank">Avalonia UI</a>
-            </h2>
+    <div id="out">
+        <div id="avalonia-splash">
+            <div class="center">
+                <h2 class="purple">
+                    Powered by
+                    <a class="highlight" href="https://www.avaloniaui.net/" target="_blank">Avalonia UI</a>
+                </h2>
+            </div>
+            <img class="icon" src="Logo.svg" alt="Avalonia Logo" />
         </div>
-        <img alt="Avalonia Logo" class="icon" src="Logo.svg"/>
     </div>
-</div>
-<script src="./main.js" type='module'></script>
+    <script type='module' src="./main.js"></script>
 </body>
 
 </html>
