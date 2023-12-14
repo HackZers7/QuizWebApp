@@ -1,14 +1,17 @@
+using System;
 using System.Collections.Generic;
 
 namespace QuizWebApp.Models;
 
-public abstract class QuestionBase
+public abstract class QuestionBase : ICloneable
 {
     private int _lastId;
 
     public int Id { get; set; }
     public List<AnswerBase> Answers { get; } = new();
     public string QuestionText { get; set; } = string.Empty;
+
+    public abstract object Clone();
 
     public virtual int CheckAnswers(List<AnswerBase> answers)
     {
