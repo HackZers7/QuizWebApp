@@ -1,3 +1,4 @@
+using Avalonia.Controls;
 using QuizWebApp.Services.NavigateService;
 using QuizWebApp.Views;
 using ReactiveUI;
@@ -8,7 +9,7 @@ public class NavigateViewModel : ViewModelBase, INavigateViewModel
 {
     private ViewModelBase? _content;
 
-    public NavigateViewModel(INavigateFactory navigator, NavigateView view) : base(navigator, view)
+    public NavigateViewModel(INavigateFactory navigator) : base(navigator)
     {
         _navigateFactory!.RegisterNavigateViewModel(this);
     }
@@ -18,6 +19,8 @@ public class NavigateViewModel : ViewModelBase, INavigateViewModel
         get => _content;
         private set => this.RaiseAndSetIfChanged(ref _content, value);
     }
+
+    public override Control View { get; } = new NavigateView();
 
     public void Navigate(ViewModelBase? model)
     {

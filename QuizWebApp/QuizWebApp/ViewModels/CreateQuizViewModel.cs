@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
 using System.Windows.Input;
+using Avalonia.Controls;
 using QuizWebApp.Models;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
@@ -17,7 +18,7 @@ public class CreateQuizViewModel : ViewModelBase
     private Quiz _quiz;
 
     [DesignOnly(true)]
-    public CreateQuizViewModel() : base(null, null)
+    public CreateQuizViewModel() : base(null)
     {
         Questions = new ObservableCollection<QuestionViewModel>
         {
@@ -33,9 +34,7 @@ public class CreateQuizViewModel : ViewModelBase
         };
     }
 
-    public CreateQuizViewModel(INavigateFactory navigator, IGetQuiz getQuiz,
-        IAbstractFactory<CreateQuizView> viewFactory) : base(navigator,
-        viewFactory.Create())
+    public CreateQuizViewModel(INavigateFactory navigator, IGetQuiz getQuiz) : base(navigator)
     {
         _quiz = new Quiz();
         _getQuizService = getQuiz;
@@ -70,6 +69,8 @@ public class CreateQuizViewModel : ViewModelBase
 
     public ICommand SaveCommand { get; }
     public ICommand CancelCommand { get; }
+
+    public override Control View { get; } = new CreateQuizView();
 
     public void SetQuiz(Quiz quiz)
     {

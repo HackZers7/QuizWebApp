@@ -1,4 +1,5 @@
 using System.Windows.Input;
+using Avalonia.Controls;
 using QuizWebApp.Models;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
@@ -13,14 +14,14 @@ public class QuizViewModel : ViewModelBase
     private bool _styleType;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-    public QuizViewModel(Quiz quiz, INavigateFactory navigator, IAbstractFactory<CreateQuizViewModel> createQuizFactory)
-        : base(navigator, null)
+    public QuizViewModel(Quiz quiz, INavigateFactory navigator, IGetQuiz getQuiz)
+        : base(navigator)
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     {
         _quiz = quiz;
         OpenEditCommand = ReactiveCommand.Create(() =>
         {
-            var viewModel = createQuizFactory.Create();
+            var viewModel = new CreateQuizViewModel(navigator, getQuiz);
             viewModel.SetQuiz(_quiz);
             _navigateFactory.Push<NavigateViewModel>(viewModel);
         });
@@ -37,4 +38,5 @@ public class QuizViewModel : ViewModelBase
 
     public ICommand OpenEditCommand { get; }
     public ICommand PlayCommand { get; }
+    public override Control View { get; }
 }
