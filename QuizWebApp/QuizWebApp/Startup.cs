@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
 using QuizWebApp.ViewModels;
 using QuizWebApp.Views;
@@ -19,15 +20,18 @@ public static class Startup
     {
         services.AddSingleton<INavigateFactory, NavigateFactory>()
             .AddTransient<ILogger, ConsoleLogger>()
+            .AddSingleton<IGetQuiz, GetQuizService>()
             // Add view models
             .AddTransient<MainViewModel>()
             .AddTransient<MainWindowViewModel>()
             .AddTransient<NavigateViewModel>()
-            .AddTransient<CreateQuizViewModel>()
+            .AddFormFactory<CreateQuizViewModel>()
+            .AddFormFactory<QuizSelectViewModel>()
             // Add Views
             .AddTransient<MainView>()
             .AddTransient<MainWindow>()
             .AddTransient<NavigateView>()
-            .AddTransient<CreateQuizView>();
+            .AddFormFactory<CreateQuizView>()
+            .AddFormFactory<QuizSelectView>();
     }
 }

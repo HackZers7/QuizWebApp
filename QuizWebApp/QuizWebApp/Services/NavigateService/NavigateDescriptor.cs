@@ -26,7 +26,7 @@ public class NavigateDescriptor
     public ViewModelBase? Pop()
     {
         var pastViewModel = _currentViewModel;
-        _currentViewModel = _stack.Pop();
+        _currentViewModel = _stack.Count != 0 ? _stack.Pop() : null;
         Navigate();
         return pastViewModel;
     }
