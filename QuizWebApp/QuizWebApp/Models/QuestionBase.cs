@@ -26,6 +26,16 @@ public abstract class QuestionBase : ICloneable
 
     public abstract bool CheckAnswer(AnswerBase answer);
 
+    public int CountRightAnswers()
+    {
+        var count = 0;
+        foreach (var answer in Answers)
+            if (answer.IsCorrect)
+                count++;
+
+        return count;
+    }
+
     protected int GetNextAnswersId()
     {
         return _lastId++;
