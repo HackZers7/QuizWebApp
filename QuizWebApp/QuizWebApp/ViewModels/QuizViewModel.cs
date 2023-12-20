@@ -25,6 +25,11 @@ public class QuizViewModel : ViewModelBase
             viewModel.SetQuiz(_quiz);
             _navigateFactory.Push<NavigateViewModel>(viewModel);
         });
+        PlayCommand = ReactiveCommand.Create(() =>
+        {
+            var viewModel = new PlayQuizViewModel(navigator, _quiz);
+            _navigateFactory.Push<NavigateViewModel>(viewModel);
+        });
     }
 
     public bool StyleType
