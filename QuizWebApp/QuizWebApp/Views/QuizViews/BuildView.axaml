@@ -23,12 +23,12 @@
                         <CheckBox IsChecked="{Binding IsCorrect, Mode=TwoWay}" />
                     </StackPanel>
                     <Button Content="-" HorizontalAlignment="Right"
-                            Command="{Binding ElementName=parentPanel, Path=$parent[ItemsControl].((vm:QuestionViewModel)DataContext).RemoveAnswersCommand}"
+                            Command="{Binding ElementName=parentPanel, Path=$parent[ItemsControl].((quizViewModels:QuestionViewModel)DataContext).RemoveAnswersCommand}"
                             CommandParameter="{Binding}" />
                 </DockPanel>
             </Panel>
         </DataTemplate>
-        <DataTemplate x:DataType="{x:Type vm:QuestionViewModel}">
+        <DataTemplate x:DataType="{x:Type quizViewModels:QuestionViewModel}">
             <Panel Margin="5 0 0 0">
                 <Panel Background="Gray" Opacity="0.2" />
                 <Grid Margin="5" RowDefinitions="Auto *">

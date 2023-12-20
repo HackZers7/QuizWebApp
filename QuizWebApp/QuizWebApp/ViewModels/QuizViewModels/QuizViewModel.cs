@@ -3,10 +3,9 @@ using Avalonia.Controls;
 using QuizWebApp.Models;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
-using QuizWebApp.ViewModels.QuizViewModels;
 using ReactiveUI;
 
-namespace QuizWebApp.ViewModels;
+namespace QuizWebApp.ViewModels.QuizViewModels;
 
 public class QuizViewModel : ViewModelBase
 {

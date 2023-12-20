@@ -22,7 +22,7 @@
     </UserControl.Styles>
 
     <UserControl.DataTemplates>
-        <DataTemplate DataType="{x:Type vm:QuizViewModel}">
+        <DataTemplate DataType="{x:Type quizViewModels:QuizViewModel}">
             <Panel>
                 <Panel Classes.ListItemStyle1="{Binding StyleType}" Classes.ListItemStyle2="{Binding !StyleType}" />
                 <Grid ColumnDefinitions="* Auto" Margin="5">

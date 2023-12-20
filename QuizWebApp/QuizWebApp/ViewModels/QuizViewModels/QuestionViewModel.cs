@@ -6,7 +6,7 @@ using QuizWebApp.Models;
 using QuizWebApp.Services.NavigateService;
 using ReactiveUI;
 
-namespace QuizWebApp.ViewModels;
+namespace QuizWebApp.ViewModels.QuizViewModels;
 
 public class QuestionViewModel : ViewModelBase
 {
