@@ -12,4 +12,11 @@ public class TextQuestionPlayViewModel : QuestionPlayViewModel
     public string Answer { get; set; }
 
     public override Control View { get; }
+    public override int CheckQuestion()
+    {
+        foreach (var answer in Question.Answers)
+        {
+            
+        }
+    }
 }

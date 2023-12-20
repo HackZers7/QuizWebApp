@@ -4,12 +4,14 @@ namespace QuizWebApp.ViewModels;
 
 public abstract class QuestionPlayViewModel : ViewModelBase
 {
-    protected readonly QuestionBase _question;
-
     protected QuestionPlayViewModel(QuestionBase question) : base(null)
     {
-        _question = question;
+        Question = question;
     }
 
-    public string QuestionText => _question.QuestionText;
+    public QuestionBase Question { get; }
+
+    public string QuestionText => Question.QuestionText;
+
+    public abstract int CheckQuestion();
 }

@@ -13,18 +13,7 @@ public abstract class QuestionBase : ICloneable
 
     public abstract object Clone();
 
-    public virtual int CheckAnswers(List<AnswerBase> answers)
-    {
-        var correctCount = 0;
-
-        foreach (var answer in answers) correctCount = CheckAnswer(answer) ? correctCount + 1 : correctCount;
-
-        return correctCount;
-    }
-
     public abstract AnswerBase CreateAnswer();
-
-    public abstract bool CheckAnswer(AnswerBase answer);
 
     protected int GetNextAnswersId()
     {

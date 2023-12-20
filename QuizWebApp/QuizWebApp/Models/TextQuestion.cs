@@ -24,13 +24,4 @@ public class TextQuestion : QuestionBase
         Answers.Add(newAnswer);
         return newAnswer;
     }
-
-    public override bool CheckAnswer(AnswerBase answer)
-    {
-        if (answer is not TextAnswer validAnswer) return false;
-        foreach (var thisAnswer in Answers)
-            return thisAnswer.CheckAnswer(validAnswer);
-
-        return false;
-    }
 }

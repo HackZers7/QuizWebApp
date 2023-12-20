@@ -13,11 +13,4 @@ public class TextAnswer : AnswerBase
             Value = Value
         };
     }
-
-    public override bool CheckAnswer(AnswerBase answer)
-    {
-        if (answer is TextAnswer validAnswer) return Value.Equals(validAnswer.Value);
-
-        return false;
-    }
 }

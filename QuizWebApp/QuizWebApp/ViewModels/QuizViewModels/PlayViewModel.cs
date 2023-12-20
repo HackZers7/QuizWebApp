@@ -33,6 +33,13 @@ public class PlayViewModel : ViewModelBase
         {
             _navigateFactory.Push<NavigateViewModel>(new SelectViewModel(navigator, getQuiz));
         });
+        DoneCommand = ReactiveCommand.Create(() =>
+        {
+            foreach (var question in Questions)
+            {
+                // TODO: Реализовать отображение результата
+            }
+        });
     }
 
     public string Name => _quiz.Name;
@@ -40,6 +47,7 @@ public class PlayViewModel : ViewModelBase
     public ObservableCollection<QuestionPlayViewModel> Questions { get; } = new();
 
     public ICommand CancelCommand { get; }
+    public ICommand DoneCommand { get; }
 
     public override Control View { get; } = new PlayView();
 }
