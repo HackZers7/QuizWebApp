@@ -38,6 +38,7 @@
             </Panel>
         </DataTemplate>
     </UserControl.DataTemplates>
+    
     <Grid>
         <ItemsControl ItemsSource="{Binding Quizzes, Mode=OneWay}" />
     </Grid>

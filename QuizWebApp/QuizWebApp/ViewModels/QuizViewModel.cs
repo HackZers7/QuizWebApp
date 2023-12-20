@@ -24,7 +24,12 @@ public class QuizViewModel : ViewModelBase
         {
             var viewModel = new BuildViewModel(navigator, getQuiz);
             viewModel.SetQuiz(_quiz);
-            _navigateFactory.Push<NavigateViewModel>(viewModel);
+            _navigateFactory.Push<NavigateViewModel>(viewModel, false);
+        });
+
+        PlayCommand = ReactiveCommand.Create(() =>
+        {
+            _navigateFactory.Push<NavigateViewModel>(new PlayViewModel(navigator, getQuiz, _quiz), false);
         });
     }
 

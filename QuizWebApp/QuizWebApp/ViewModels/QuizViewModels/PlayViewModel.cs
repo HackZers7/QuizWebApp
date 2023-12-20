@@ -15,7 +15,7 @@ public class PlayViewModel : ViewModelBase
     private readonly IGetQuiz _getQuiz;
     private readonly Quiz _quiz;
 
-    public PlayViewModel(INavigateFactory navigator, IGetQuiz getQuiz, Quiz quiz, ICommand cancelCommand) :
+    public PlayViewModel(INavigateFactory navigator, IGetQuiz getQuiz, Quiz quiz) :
         base(navigator)
     {
         _getQuiz = getQuiz;
@@ -43,7 +43,7 @@ public class PlayViewModel : ViewModelBase
         });
     }
 
-    public string Name => _quiz.Name;
+    public string Name { get; }
 
     public ObservableCollection<QuestionPlayViewModel> Questions { get; } = new();
 

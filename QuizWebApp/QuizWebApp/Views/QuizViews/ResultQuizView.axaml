@@ -18,15 +18,17 @@
         </Style>
     </UserControl.Styles>
 
-    <UserControl.DataContext>
+    <UserControl.DataTemplates>
         <DataTemplate DataType="{x:Type vm:QuestionResultViewModel}">
             <Panel>
-                <Panel Classes.GreenYellow="{Binding IsRight}" Classes.DarkRed="{Binding !IsRight}" />
-                <TextBlock Text="{Binding QuestionText, Mode=OneTime}" />
-                <TextBlock Text="{Binding RightCount, StringFormat='- Количество правильных ответов: {0}'}" />
+                <Panel Classes.Right="{Binding IsRight}" Classes.NotRight="{Binding !IsRight}" />
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="{Binding QuestionText, Mode=OneTime}" />
+                    <TextBlock Text="{Binding RightCount, StringFormat='- Количество правильных ответов: {0}'}" />
+                </StackPanel>
             </Panel>
         </DataTemplate>
-    </UserControl.DataContext>
+    </UserControl.DataTemplates>
     <Grid RowDefinitions="Auto, *, Auto">
         <TextBlock Text="Результаты" />
         <ItemsControl Grid.Row="1" ItemsSource="{Binding Questions, Mode=OneTime}" />

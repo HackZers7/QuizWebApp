@@ -7,24 +7,22 @@
              xmlns:vm="clr-namespace:QuizWebApp.ViewModels"
              x:DataType="quizViewModels:PlayViewModel"
              x:Class="QuizWebApp.Views.QuizViews.PlayView">
-    <UserControl.DataContext>
+    <UserControl.DataTemplates>
         <DataTemplate DataType="{x:Type vm:TextQuestionPlayViewModel}">
             <Panel Margin="0 0 0 5">
                 <StackPanel Spacing="5" Orientation="Vertical">
                     <TextBlock Text="{Binding QuestionText, Mode=OneTime}" />
-                    <TextBox Text="{Binding QuestionText,Mode=TwoWay}" />
+                    <TextBox Text="{Binding Answer,Mode=TwoWay}" />
                 </StackPanel>
             </Panel>
         </DataTemplate>
-    </UserControl.DataContext>
-    <Design.DataContext>
-        <quizViewModels:PlayViewModel />
-    </Design.DataContext>
+    </UserControl.DataTemplates>
+
     <Grid RowDefinitions="Auto * Auto">
         <TextBlock Text="{Binding Name, Mode=OneTime}" />
         <ItemsControl Grid.Row="1" ItemsSource="{Binding Questions, Mode=OneWay}" />
         <DockPanel Grid.Row="2">
-            <Button HorizontalAlignment="Left" Content="Сдать" />
+            <Button HorizontalAlignment="Left" Content="Сдать" Command="{Binding DoneCommand, Mode=OneWay}" />
             <Button HorizontalAlignment="Right" Content="Отмена" Command="{Binding CancelCommand, Mode=OneWay}" />
         </DockPanel>
     </Grid>
