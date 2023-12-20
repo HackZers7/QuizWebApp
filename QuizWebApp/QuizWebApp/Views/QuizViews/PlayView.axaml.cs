@@ -2,11 +2,11 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace QuizWebApp.Views;
+namespace QuizWebApp.Views.QuizViews;
 
-public partial class PlayQuizView : UserControl
+public partial class PlayView : UserControl
 {
-    public PlayQuizView()
+    public PlayView()
     {
         InitializeComponent();
     }

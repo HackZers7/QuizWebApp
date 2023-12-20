@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
+using QuizWebApp.ViewModels.QuizViewModels;
 using QuizWebApp.Views;
 using ReactiveUI;
 
@@ -18,11 +19,11 @@ public class MainViewModel : ViewModelBase
 
         OpenEditorCommand = ReactiveCommand.Create(() =>
         {
-            _navigateFactory.Push<NavigateViewModel>(new CreateQuizViewModel(_navigateFactory, getQuiz), false);
+            _navigateFactory.Push<NavigateViewModel>(new BuildViewModel(_navigateFactory, getQuiz), false);
         });
         OpenSelectQuizCommand = ReactiveCommand.Create(() =>
         {
-            _navigateFactory.Push<NavigateViewModel>(new QuizSelectViewModel(_navigateFactory, getQuiz), false);
+            _navigateFactory.Push<NavigateViewModel>(new SelectViewModel(_navigateFactory, getQuiz), false);
         });
 
         OpenSelectQuizCommand.Execute(null);

@@ -11,8 +11,6 @@ public class Quiz : ICloneable
 
     public List<QuestionBase> Questions { get; } = new();
 
-    public int NumberOfPasses { get; set; } = 0;
-
     public object Clone()
     {
         var output = new Quiz

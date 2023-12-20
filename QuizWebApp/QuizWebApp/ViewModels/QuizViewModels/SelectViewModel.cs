@@ -5,16 +5,16 @@ using QuizWebApp.Extensions;
 using QuizWebApp.Models;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
-using QuizWebApp.Views;
+using QuizWebApp.Views.QuizViews;
 
-namespace QuizWebApp.ViewModels;
+namespace QuizWebApp.ViewModels.QuizViewModels;
 
-public class QuizSelectViewModel : ViewModelBase
+public class SelectViewModel : ViewModelBase
 {
     private readonly IGetQuiz _getQuizService;
 
     [DesignOnly(true)]
-    public QuizSelectViewModel() : base(null)
+    public SelectViewModel() : base(null)
     {
         Quizzes = new ObservableCollection<QuizViewModel>
         {
@@ -45,7 +45,7 @@ public class QuizSelectViewModel : ViewModelBase
         };
     }
 
-    public QuizSelectViewModel(INavigateFactory navigator,
+    public SelectViewModel(INavigateFactory navigator,
         IGetQuiz getQuizService) : base(navigator)
     {
         _getQuizService = getQuizService;
@@ -56,5 +56,5 @@ public class QuizSelectViewModel : ViewModelBase
     }
 
     public ObservableCollection<QuizViewModel> Quizzes { get; } = new();
-    public override Control View { get; } = new QuizSelectView();
+    public override Control View { get; } = new SelectView();
 }
