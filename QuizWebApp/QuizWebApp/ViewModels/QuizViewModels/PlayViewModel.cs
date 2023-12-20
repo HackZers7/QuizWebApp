@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Input;
 using Avalonia.Controls;
 using QuizWebApp.Models;
@@ -12,17 +12,13 @@ namespace QuizWebApp.ViewModels.QuizViewModels;
 
 public class PlayViewModel : ViewModelBase
 {
+    private readonly IGetQuiz _getQuiz;
     private readonly Quiz _quiz;
-
-    [DesignOnly(true)]
-    public PlayViewModel() : base(null)
-    {
-        _quiz = new Quiz();
-    }
 
     public PlayViewModel(INavigateFactory navigator, IGetQuiz getQuiz, Quiz quiz, ICommand cancelCommand) :
         base(navigator)
     {
+        _getQuiz = getQuiz;
         _quiz = quiz;
 
         foreach (var question in _quiz.Questions)
@@ -35,10 +31,15 @@ public class PlayViewModel : ViewModelBase
         });
         DoneCommand = ReactiveCommand.Create(() =>
         {
+            var list = new List<QuestionResultViewModel>();
             foreach (var question in Questions)
             {
-                // TODO: Реализовать отображение результата
+                var count = question.CheckQuestion();
+
+                list.Add(new QuestionResultViewModel(question.QuestionText, count));
             }
+
+            _navigateFactory.Push<NavigateViewModel>(new ResultViewModel(_navigateFactory, _getQuiz, list), false);
         });
     }
 

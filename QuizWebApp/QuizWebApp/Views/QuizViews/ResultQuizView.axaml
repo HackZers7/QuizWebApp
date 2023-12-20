@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:quizViewModels="clr-namespace:QuizWebApp.ViewModels.QuizViewModels"
+             xmlns:vm="clr-namespace:QuizWebApp.ViewModels"
+             x:DataType="quizViewModels:ResultViewModel"
+             x:Class="QuizWebApp.Views.QuizViews.ResultQuizView">
+    <UserControl.Styles>
+        <Style Selector="Panel.Right">
+            <Setter Property="Background" Value="GreenYellow" />
+            <Setter Property="Opacity" Value="0.2" />
+        </Style>
+        <Style Selector="Panel.NotRight">
+            <Setter Property="Background" Value="DarkRed" />
+            <Setter Property="Opacity" Value="0.2" />
+        </Style>
+    </UserControl.Styles>
+
+    <UserControl.DataContext>
+        <DataTemplate DataType="{x:Type vm:QuestionResultViewModel}">
+            <Panel>
+                <Panel Classes.GreenYellow="{Binding IsRight}" Classes.DarkRed="{Binding !IsRight}" />
+                <TextBlock Text="{Binding QuestionText, Mode=OneTime}" />
+                <TextBlock Text="{Binding RightCount, StringFormat='- Количество правильных ответов: {0}'}" />
+            </Panel>
+        </DataTemplate>
+    </UserControl.DataContext>
+    <Grid RowDefinitions="Auto, *, Auto">
+        <TextBlock Text="Результаты" />
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Questions, Mode=OneTime}" />
+        <Button Grid.Row="2" />
+    </Grid>
+</UserControl>
