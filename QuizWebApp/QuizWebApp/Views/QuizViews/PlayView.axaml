@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:quizViewModels="clr-namespace:QuizWebApp.ViewModels.QuizViewModels"
+             xmlns:vm="clr-namespace:QuizWebApp.ViewModels"
+             x:DataType="quizViewModels:PlayViewModel"
+             x:Class="QuizWebApp.Views.QuizViews.PlayView">
+    <UserControl.DataContext>
+        <DataTemplate DataType="{x:Type vm:TextQuestionPlayViewModel}">
+            <Panel>
+                <StackPanel Spacing="5" Orientation="Vertical">
+                    <TextBlock Text="{Binding QuestionText, Mode=OneTime}" />
+                    <TextBox Text="{Binding QuestionText,Mode=TwoWay}" />
+                </StackPanel>
+            </Panel>
+        </DataTemplate>
+    </UserControl.DataContext>
+    <Design.DataContext>
+        <quizViewModels:PlayViewModel />
+    </Design.DataContext>
+    <Grid RowDefinitions="Auto * Auto">
+        <TextBlock Text="{Binding Name, Mode=OneTime}" />
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Questions, Mode=OneWay}" />
+        <DockPanel Grid.Row="2">
+            <Button HorizontalAlignment="Left" Content="Сдать" />
+            <Button HorizontalAlignment="Right" Content="Отмена" Command="{Binding CancelCommand, Mode=OneWay}" />
+        </DockPanel>
+    </Grid>
+</UserControl>
