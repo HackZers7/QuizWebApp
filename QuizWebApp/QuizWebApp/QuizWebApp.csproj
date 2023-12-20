@@ -21,11 +21,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Views\QuizViews\CreateQuizView.axaml.cs">
+      <Compile Update="Views\QuizViews\BuildView.axaml.cs">
         <DependentUpon>CreateQuizView.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
-      <Compile Update="Views\QuizViews\QuizSelectView.axaml.cs">
+      <Compile Update="Views\QuizViews\SelectView.axaml.cs">
         <DependentUpon>QuizSelectView.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>

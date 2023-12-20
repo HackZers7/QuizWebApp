@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace QuizWebApp.Views.QuizViews;
 
-public partial class CreateQuizView : UserControl
+public partial class BuildView : UserControl
 {
-    public CreateQuizView()
+    public BuildView()
     {
         InitializeComponent();
     }

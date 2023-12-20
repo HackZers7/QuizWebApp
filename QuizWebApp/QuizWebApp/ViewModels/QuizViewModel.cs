@@ -22,7 +22,7 @@ public class QuizViewModel : ViewModelBase
         _quiz = quiz;
         OpenEditCommand = ReactiveCommand.Create(() =>
         {
-            var viewModel = new CreateQuizViewModel(navigator, getQuiz);
+            var viewModel = new BuildViewModel(navigator, getQuiz);
             viewModel.SetQuiz(_quiz);
             _navigateFactory.Push<NavigateViewModel>(viewModel);
         });

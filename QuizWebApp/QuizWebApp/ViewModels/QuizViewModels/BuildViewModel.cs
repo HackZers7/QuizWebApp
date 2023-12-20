@@ -11,14 +11,14 @@ using ReactiveUI;
 
 namespace QuizWebApp.ViewModels.QuizViewModels;
 
-public class CreateQuizViewModel : ViewModelBase
+public class BuildViewModel : ViewModelBase
 {
     private readonly IGetQuiz _getQuizService;
     private int _latsNumber;
     private Quiz _quiz;
 
     [DesignOnly(true)]
-    public CreateQuizViewModel() : base(null)
+    public BuildViewModel() : base(null)
     {
         Questions = new ObservableCollection<QuestionViewModel>
         {
@@ -34,7 +34,7 @@ public class CreateQuizViewModel : ViewModelBase
         };
     }
 
-    public CreateQuizViewModel(INavigateFactory navigator, IGetQuiz getQuiz) : base(navigator)
+    public BuildViewModel(INavigateFactory navigator, IGetQuiz getQuiz) : base(navigator)
     {
         _quiz = new Quiz();
         _getQuizService = getQuiz;
@@ -70,7 +70,7 @@ public class CreateQuizViewModel : ViewModelBase
     public ICommand SaveCommand { get; }
     public ICommand CancelCommand { get; }
 
-    public override Control View { get; } = new CreateQuizView();
+    public override Control View { get; } = new BuildView();
 
     public void SetQuiz(Quiz quiz)
     {

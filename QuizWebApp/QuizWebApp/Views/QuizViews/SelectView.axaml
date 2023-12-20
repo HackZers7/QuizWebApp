@@ -5,10 +5,10 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="clr-namespace:QuizWebApp.ViewModels"
              xmlns:quizViewModels="clr-namespace:QuizWebApp.ViewModels.QuizViewModels"
-             x:DataType="quizViewModels:QuizSelectViewModel"
-             x:Class="QuizWebApp.Views.QuizViews.QuizSelectView">
+             x:DataType="quizViewModels:SelectViewModel"
+             x:Class="QuizWebApp.Views.QuizViews.SelectView">
     <Design.DataContext>
-        <quizViewModels:QuizSelectViewModel />
+        <quizViewModels:SelectViewModel />
     </Design.DataContext>
     <UserControl.Styles>
         <Style Selector="Panel.ListItemStyle1">
