@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace QuizWebApp.Models;
 
+[Serializable]
 public class Quiz : ICloneable
 {
     public int Id { get; set; }

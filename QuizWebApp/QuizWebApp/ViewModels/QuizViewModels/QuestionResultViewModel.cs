@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace QuizWebApp.ViewModels;
+namespace QuizWebApp.ViewModels.QuizViewModels;
 
 public class QuestionResultViewModel : ViewModelBase
 {

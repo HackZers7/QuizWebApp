@@ -19,7 +19,7 @@
     </UserControl.Styles>
 
     <UserControl.DataTemplates>
-        <DataTemplate DataType="{x:Type vm:QuestionResultViewModel}">
+        <DataTemplate DataType="{x:Type quizViewModels:QuestionResultViewModel}">
             <Panel>
                 <Panel Classes.Right="{Binding IsRight}" Classes.NotRight="{Binding !IsRight}" />
                 <StackPanel Orientation="Horizontal" Spacing="5">

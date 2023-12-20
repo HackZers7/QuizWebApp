@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace QuizWebApp.Models;
 
+[Serializable]
 public abstract class QuestionBase : ICloneable
 {
     private int _lastId;

@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using QuizWebApp.Models;
 
-namespace QuizWebApp.ViewModels;
+namespace QuizWebApp.ViewModels.QuizViewModels;
 
 public class TextQuestionPlayViewModel : QuestionPlayViewModel
 {

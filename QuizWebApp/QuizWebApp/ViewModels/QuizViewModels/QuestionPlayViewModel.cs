@@ -1,6 +1,6 @@
 using QuizWebApp.Models;
 
-namespace QuizWebApp.ViewModels;
+namespace QuizWebApp.ViewModels.QuizViewModels;
 
 public abstract class QuestionPlayViewModel : ViewModelBase
 {

@@ -8,7 +8,7 @@
              x:DataType="quizViewModels:PlayViewModel"
              x:Class="QuizWebApp.Views.QuizViews.PlayView">
     <UserControl.DataTemplates>
-        <DataTemplate DataType="{x:Type vm:TextQuestionPlayViewModel}">
+        <DataTemplate DataType="{x:Type quizViewModels:TextQuestionPlayViewModel}">
             <Panel Margin="0 0 0 5">
                 <StackPanel Spacing="5" Orientation="Vertical">
                     <TextBlock Text="{Binding QuestionText, Mode=OneTime}" />

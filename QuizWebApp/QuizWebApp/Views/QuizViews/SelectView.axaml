@@ -22,7 +22,7 @@
     </UserControl.Styles>
 
     <UserControl.DataTemplates>
-        <DataTemplate DataType="{x:Type vm:QuizViewModel}">
+        <DataTemplate DataType="{x:Type quizViewModels:QuizViewModel}">
             <Panel>
                 <Panel Classes.ListItemStyle1="{Binding StyleType}" Classes.ListItemStyle2="{Binding !StyleType}" />
                 <Grid ColumnDefinitions="* Auto" Margin="5">
@@ -31,6 +31,7 @@
                         <TextBlock Text="{Binding QuestionCount, Mode=OneWay, StringFormat='Количество вопросов: {0}'}" />
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="5">
+                        <Button Content="Скачать" Command="{Binding DownloadCommand}" />
                         <Button Content="Редактировать" Command="{Binding OpenEditCommand}" />
                         <Button Content="Открыть" Command="{Binding PlayCommand}" />
                     </StackPanel>
