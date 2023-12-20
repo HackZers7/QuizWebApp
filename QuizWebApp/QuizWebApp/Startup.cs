@@ -21,6 +21,7 @@ public static class Startup
         services.AddSingleton<INavigateFactory, NavigateFactory>()
             .AddTransient<ILogger, ConsoleLogger>()
             .AddSingleton<IGetQuiz, GetQuizService>()
+            //.AddTransient<IDownloadFileService, DownloadFileService>()
             // Add view models
             .AddTransient<MainViewModel>()
             .AddTransient<MainWindowViewModel>()
