@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using Avalonia.Controls;
+using Newtonsoft.Json;
 using QuizWebApp.Models;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
@@ -30,6 +31,16 @@ public class QuizViewModel : ViewModelBase
         {
             _navigateFactory.Push<NavigateViewModel>(new PlayViewModel(navigator, getQuiz, _quiz), false);
         });
+
+        DownloadCommand = ReactiveCommand.Create(() =>
+        {
+            var json = JsonConvert.SerializeObject(_quiz, new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.All,
+                Formatting = Formatting.Indented
+            });
+            DownloadHelper.DownloadFile($"{_quiz.Id}.json", "text/plain", json);
+        });
     }
 
     public bool StyleType
@@ -43,5 +54,6 @@ public class QuizViewModel : ViewModelBase
 
     public ICommand OpenEditCommand { get; }
     public ICommand PlayCommand { get; }
+    public ICommand DownloadCommand { get; }
     public override Control View { get; }
 }

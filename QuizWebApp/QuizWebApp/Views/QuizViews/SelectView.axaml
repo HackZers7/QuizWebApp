@@ -31,6 +31,7 @@
                         <TextBlock Text="{Binding QuestionCount, Mode=OneWay, StringFormat='Количество вопросов: {0}'}" />
                     </StackPanel>
                     <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="5">
+                        <Button Content="Скачать" Command="{Binding DownloadCommand}" />
                         <Button Content="Редактировать" Command="{Binding OpenEditCommand}" />
                         <Button Content="Открыть" Command="{Binding PlayCommand}" />
                     </StackPanel>

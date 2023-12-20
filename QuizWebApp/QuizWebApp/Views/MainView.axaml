@@ -13,6 +13,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Content="Создать тест" Command="{Binding OpenEditorCommand, Mode=OneWay}" />
                 <Button Content="Просмотреть тесты" Command="{Binding OpenSelectQuizCommand, Mode=OneWay}" />
+                <Button Content="Загрузить тест" Command="{Binding LoadFileCommand, Mode=OneWay}" />
             </StackPanel>
         </Panel>
         <UserControl Grid.Row="1" Content="{Binding Content, Mode=OneWay}" />

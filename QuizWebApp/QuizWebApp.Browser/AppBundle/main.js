@@ -11,3 +11,5 @@ const dotnetRuntime = await dotnet
 const config = dotnetRuntime.getConfig();
 
 await dotnetRuntime.runMainAndExit(config.mainAssemblyName, [window.location.search]);
+
+window.exports = await dotnetRuntime.getAssemblyExports("QuizWebApp.dll");
