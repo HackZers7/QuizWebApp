@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace QuizWebApp.Views;
+namespace QuizWebApp.Views.QuizViews;
 
 public partial class CreateQuizView : UserControl
 {

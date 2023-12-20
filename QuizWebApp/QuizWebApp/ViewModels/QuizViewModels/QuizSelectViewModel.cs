@@ -5,9 +5,9 @@ using QuizWebApp.Extensions;
 using QuizWebApp.Models;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
-using QuizWebApp.Views;
+using QuizWebApp.Views.QuizViews;
 
-namespace QuizWebApp.ViewModels;
+namespace QuizWebApp.ViewModels.QuizViewModels;
 
 public class QuizSelectViewModel : ViewModelBase
 {

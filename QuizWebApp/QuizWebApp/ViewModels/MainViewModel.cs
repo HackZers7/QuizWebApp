@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using QuizWebApp.Services;
 using QuizWebApp.Services.NavigateService;
+using QuizWebApp.ViewModels.QuizViewModels;
 using QuizWebApp.Views;
 using ReactiveUI;
 

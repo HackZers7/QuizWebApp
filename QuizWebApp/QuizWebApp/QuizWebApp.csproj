@@ -19,4 +19,15 @@
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
         <PackageReference Include="Splat.Avalonia.Microsoft.Extensions.DependencyInjection" Version="14.8.6" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\QuizViews\CreateQuizView.axaml.cs">
+        <DependentUpon>CreateQuizView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\QuizViews\QuizSelectView.axaml.cs">
+        <DependentUpon>QuizSelectView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

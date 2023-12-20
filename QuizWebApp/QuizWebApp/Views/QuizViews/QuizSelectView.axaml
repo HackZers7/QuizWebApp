@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="clr-namespace:QuizWebApp.ViewModels"
-             x:DataType="vm:QuizSelectViewModel"
-             x:Class="QuizWebApp.Views.QuizSelectView">
+             xmlns:quizViewModels="clr-namespace:QuizWebApp.ViewModels.QuizViewModels"
+             x:DataType="quizViewModels:QuizSelectViewModel"
+             x:Class="QuizWebApp.Views.QuizViews.QuizSelectView">
     <Design.DataContext>
-        <vm:QuizSelectViewModel />
+        <quizViewModels:QuizSelectViewModel />
     </Design.DataContext>
     <UserControl.Styles>
         <Style Selector="Panel.ListItemStyle1">
