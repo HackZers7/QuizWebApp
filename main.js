@@ -1,4 +1,4 @@
-﻿import { dotnet } from './dotnet.js'
+﻿import {dotnet} from './dotnet.js'
 
 const is_browser = typeof window != "undefined";
 if (!is_browser) throw new Error(`Expected to be running in a browser`);
@@ -11,3 +11,5 @@ const dotnetRuntime = await dotnet
 const config = dotnetRuntime.getConfig();
 
 await dotnetRuntime.runMainAndExit(config.mainAssemblyName, [window.location.search]);
+
+window.exports = await dotnetRuntime.getAssemblyExports("QuizWebApp.dll");
