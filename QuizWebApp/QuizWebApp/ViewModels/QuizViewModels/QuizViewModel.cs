@@ -39,7 +39,7 @@ public class QuizViewModel : ViewModelBase
                 TypeNameHandling = TypeNameHandling.All,
                 Formatting = Formatting.Indented
             });
-            DownloadHelper.DownloadFile($"{_quiz.Id}.json", "text/plain", json);
+            DownloadHelper.DownloadFile($"{_quiz.Id}.json", "text/json", json);
         });
     }
 
